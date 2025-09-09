@@ -11,7 +11,26 @@ public interface IState
     public void PhysicsUpdate();
 }
 
-public class StateMachine
+public abstract class StateMachine
 {
-    
+    protected IState currentState;
+
+    public void ChangesState(IState state)
+    {
+        currentState?.Exit();
+        currentState = state;
+        currentState?.Enter();
+    }
+    public void HandleInput()
+    {
+        currentState?.HandleInput();
+    }
+    public void Update()
+    {
+        currentState?.Update();
+    }
+    public void PhysicsUpdate()
+    {
+        currentState?.PhysicsUpdate();
+    }
 }
