@@ -16,14 +16,21 @@ public class PlayerStateMachine : StateMachine
     public PlayerIdleState IdleState { get; private set; }
     public PlayerWalkState WalkState { get; private set; }
     public PlayerRunState RunState { get; private set; }
+    public PlayerJumpState JumpState { get; private set; }
+    public PlayerFallState FallState { get; private set; }
 
     public PlayerStateMachine(Player player)
     {
         this.Player = player;
+
         MainCamTransform = Camera.main.transform;
+
         IdleState = new PlayerIdleState(this);
         WalkState = new PlayerWalkState(this);
         RunState = new PlayerRunState(this);
+        JumpState = new PlayerJumpState(this);
+        FallState = new PlayerFallState(this);
+
         MovementSpeed = player.Data.GroundData.BassSpeed;
         RotationDamping = player.Data.GroundData.BassRotationDamping;
     }

@@ -932,6 +932,7 @@ GameObject:
   - component: {fileID: 1753161478}
   - component: {fileID: 1753161480}
   - component: {fileID: 1753161479}
+  - component: {fileID: 1753161481}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1018,6 +1019,19 @@ MonoBehaviour:
     fallParameterName: Fall
     attackParameterName: '@Attack'
     comboAttackParameterName: ComboAttack
+--- !u!114 &1753161481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753161474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c367163878bb34cbebcb861b489747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
