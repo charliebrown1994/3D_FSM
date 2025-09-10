@@ -424,6 +424,7 @@ GameObject:
   - component: {fileID: 606827461}
   - component: {fileID: 606827460}
   - component: {fileID: 606827457}
+  - component: {fileID: 606827462}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -488,6 +489,31 @@ Transform:
   - {fileID: 664614808}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &606827462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606827456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3b75af241816f749be5cb3abbd69b26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Data>k__BackingField: {fileID: 11400000, guid: e6fb2b287246ce540bc9c0b0f9267e19,
+    type: 2}
+  <AnimationData>k__BackingField:
+    groundParameterName: '@Ground'
+    idleParameterName: Idle
+    walkParameterName: Walk
+    runParameterName: Run
+    airParameterName: '@Air'
+    jumpParameterName: Jump
+    fallParameterName: Fall
+    attackParameterName: '@Attack'
+    comboAttackParameterName: ComboAttack
+    baseAttackParameterName: BaseAttack
 --- !u!1001 &618488517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1041,7 +1067,7 @@ GameObject:
   - component: {fileID: 1753161481}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1125,6 +1151,7 @@ MonoBehaviour:
     fallParameterName: Fall
     attackParameterName: '@Attack'
     comboAttackParameterName: ComboAttack
+    baseAttackParameterName: BaseAttack
 --- !u!114 &1753161481
 MonoBehaviour:
   m_ObjectHideFlags: 0
