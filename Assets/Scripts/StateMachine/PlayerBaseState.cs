@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerBaseState : IState
 {
@@ -15,12 +16,27 @@ public class PlayerBaseState : IState
 
     public virtual void Enter()
     {
-        
+        AddInputActionsCallbacks();
     }
     public virtual void Exit()
-    { 
+    {
+        RemoveInputActionsCallbacks();
+    }
+    protected virtual void AddInputActionsCallbacks()
+    {
+        PlayerController input = stateMachine.Player.Input;
+        input.playerActions.Movement.canceled += OnMovementCanceled;
+        input.playerActions.Run.started += OnRunStarted;
+    }
+
+    protected virtual void RemoveInputActionsCallbacks()
+    {
+        PlayerController input = stateMachine.Player.Input;
+        input.playerActions.Movement.canceled -= OnMovementCanceled;
+        input.playerActions.Run.started -= OnRunStarted;
 
     }
+
     public virtual void HandleInput()
     {
         ReadMovementInput();
@@ -31,7 +47,17 @@ public class PlayerBaseState : IState
     }
     public virtual void Update()
     {
-        
+        Move();
+    }
+
+    protected virtual void OnMovementCanceled(InputAction.CallbackContext context)
+    {
+
+    }
+
+    protected virtual void OnRunStarted(InputAction.CallbackContext context)
+    {
+
     }
 
     protected void StartAnimation(int animatorHash)
@@ -50,6 +76,9 @@ public class PlayerBaseState : IState
     private void Move()
     {
         Vector3 movementDirection = GetmovementDirection();
+        Move(movementDirection);
+        Rotate(movementDirection);
+
     }
     private Vector3 GetmovementDirection()
     {
